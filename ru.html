@@ -1,82 +1,52 @@
 ---
 layout: null
 ---
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f2ea">
-  <meta name="description" content="Иллюзорный путь: рассказы Александра Кинева. Читать по-русски.">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Иллюзорный путь — Александр Кинев">
-  <meta property="og:description" content="Иллюзорный путь: рассказы Александра Кинева. Читать по-русски.">
-  <title>Иллюзорный путь — Александр Кинев</title>
-  <link rel="stylesheet" href="style.css?v=13">
-  <link rel="alternate" hreflang="ru" href="ru.html">
-  <link rel="alternate" hreflang="en" href="en.html">
-  <script src="social.js" defer></script>
-<style id="copyright-topline-v10">
-/* Copyright notice is static HTML: works immediately, regardless of story count. */
-.copyright-notice {
-  margin: 26px 0 0;
-  padding: 13px 0 0;
-  border-top: 1px solid #d9cbc4;
-  font: 12px/1.75 Arial, Helvetica, sans-serif;
-  color: #743e44;
-}
-.copyright-print-watermark { display: none !important; }
-@media print {
-  .copyright-notice { color: #333 !important; }
-  .copyright-print-watermark {
-    display: block !important;
-    position: fixed !important;
-    left: 7% !important;
-    top: 46% !important;
-    width: 86% !important;
-    text-align: center !important;
-    transform: rotate(-27deg) !important;
-    font: bold 26pt/1.1 Georgia, 'Times New Roman', serif !important;
-    color: #743e44 !important;
-    opacity: .22 !important;
-    white-space: nowrap !important;
-    pointer-events: none !important;
-    z-index: 999999 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-}
-</style>
-  <!-- version: v12, story source: ru.txt -->
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#f6f2ea" name="theme-color"/>
+<meta content="Иллюзорный путь: рассказы Александра Кинева. Читать по-русски." name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="Иллюзорный путь — Александр Кинев" property="og:title"/>
+<meta content="Иллюзорный путь: рассказы Александра Кинева. Читать по-русски." property="og:description"/>
+<title>Иллюзорный путь — Александр Кинев</title>
+<link href="style.css?v=15" rel="stylesheet"/>
+<link href="ru.html" hreflang="ru" rel="alternate"/>
+<link href="en.html" hreflang="en" rel="alternate"/>
+<script defer="" src="social.js"></script>
+
+<!-- version: v12, story source: ru.txt -->
 </head>
 <body id="top">
-<div class="copyright-print-watermark" aria-hidden="true">© Alexander Kinev · avkinev.github.io</div>
+<div aria-hidden="true" class="copyright-print-watermark">© Alexander Kinev · avkinev.github.io</div>
 <div class="page">
-  <header>
-    <a class="brand" href="index.html">Александр Кинев</a>
-    <nav class="lang-nav" aria-label="Language / Язык">
-      <a href="ru.html" lang="ru" aria-current="page">RU</a>
-      <a href="en.html" lang="en">EN</a>
-    </nav>
-  </header>
-  <main>
-    <div class="hero">
-      <div class="kicker">Проза / <span lang="en">Prose</span></div>
-      <h1>Иллюзорный путь</h1>
-      <p class="dek">Правдивые истории о просветлённом бодхисатве и его путешествии на восток</p>
-      <p class="copyright-notice" role="note">© 2026 Александр Кинев. Все права защищены. Перепечатка и публикация переводов — только с разрешения автора.</p>
-    </div>
-    <div class="reading prose" id="stories">
+<header>
+<a class="brand" href="index.html">Александр Кинев</a>
+<nav aria-label="Language / Язык" class="lang-nav">
+<a aria-current="page" href="ru.html" lang="ru">RU</a>
+<a href="en.html" lang="en">EN</a>
+</nav>
+</header>
+<main>
+<div class="hero">
+<div class="kicker">Проза / <span lang="en">Prose</span></div>
+<h1>Иллюзорный путь</h1>
+<p class="dek">Правдивые истории о просветлённом бодхисатве и его путешествии на восток</p>
+
+</div>
+<div class="reading prose" id="stories">
 {% capture source_text %}{% include_relative ru.txt %}{% endcapture %}
 {{ source_text | markdownify }}
-</div>
-    <a class="back-to-top" href="#top">↑ К началу</a>
-
+<p class="story-signature">© Александр Кинев, 2026</p></div>
+<a class="back-to-top" href="#top">↑ К началу</a>
 </main>
-  <footer>
-    <span>© 2026 Александр Кинев. Все права защищены.</span>
-    <div class="social" aria-label="Social media"></div>
-  </footer>
+<footer class="reader-footer">
+
+<div aria-label="Social media" class="social"></div>
+</footer>
 </div>
 </body>
 </html>

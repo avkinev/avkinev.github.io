@@ -8,50 +8,20 @@ layout: null
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#f6f2ea" name="theme-color"/>
-<meta content="Illusory Road: prose by Alexander Kinev. Read in English." name="description"/>
+<meta content="The Illusory Path: prose by Alexander Kinev. Read in English." name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="Illusory Road — Alexander Kinev" property="og:title"/>
-<meta content="Illusory Road: prose by Alexander Kinev. Read in English." property="og:description"/>
-<title>Illusory Road — Alexander Kinev</title>
-<link href="style.css" rel="stylesheet"/>
+<meta content="The Illusory Path — Alexander Kinev" property="og:title"/>
+<meta content="The Illusory Path: prose by Alexander Kinev. Read in English." property="og:description"/>
+<title>The Illusory Path — Alexander Kinev</title>
+<link href="style.css?v=15" rel="stylesheet"/>
 <link href="ru.html" hreflang="ru" rel="alternate"/>
 <link href="en.html" hreflang="en" rel="alternate"/>
 <script defer="" src="social.js"></script>
-<style id="copyright-topline-v10">
-/* Copyright notice is static HTML: works immediately, regardless of story count. */
-.copyright-notice {
-  margin: 26px 0 0;
-  padding: 13px 0 0;
-  border-top: 1px solid #d9cbc4;
-  font: 12px/1.75 Arial, Helvetica, sans-serif;
-  color: #743e44;
-}
-.copyright-print-watermark { display: none !important; }
-@media print {
-  .copyright-notice { color: #333 !important; }
-  .copyright-print-watermark {
-    display: block !important;
-    position: fixed !important;
-    left: 7% !important;
-    top: 46% !important;
-    width: 86% !important;
-    text-align: center !important;
-    transform: rotate(-27deg) !important;
-    font: bold 26pt/1.1 Georgia, 'Times New Roman', serif !important;
-    color: #743e44 !important;
-    opacity: .22 !important;
-    white-space: nowrap !important;
-    pointer-events: none !important;
-    z-index: 999999 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-}
-</style>
-  <!-- version: v12, story source: en.txt -->
+
+<!-- version: v12, story source: en.txt -->
 </head>
 <body id="top">
-<div class="copyright-print-watermark" aria-hidden="true">© Alexander Kinev · avkinev.github.io</div>
+<div aria-hidden="true" class="copyright-print-watermark">© Alexander Kinev · avkinev.github.io</div>
 <div class="page">
 <header>
 <a class="brand" href="index.html">Alexander Kinev</a>
@@ -63,19 +33,18 @@ layout: null
 <main>
 <div class="hero">
 <div class="kicker"><span lang="ru">Проза</span> / Prose</div>
-<h1>Illusory Road</h1>
+<h1>The Illusory Path</h1>
 <p class="dek">True stories of an enlightened bodhisattva and his journey east</p>
-<p class="copyright-notice" role="note">© 2026 Alexander Kinev. All rights reserved. Republication and translation require the author’s permission.</p>
+
 </div>
 <div class="reading prose" id="stories">
 {% capture source_text %}{% include_relative en.txt %}{% endcapture %}
 {{ source_text | markdownify }}
-</div>
-    <a class="back-to-top" href="#top">↑ Back to the top</a>
-
+<p class="story-signature">© Alexander Kinev, 2026</p></div>
+<a class="back-to-top" href="#top">↑ Back to the top</a>
 </main>
-<footer>
-<span>© 2026 Alexander Kinev. All rights reserved.</span>
+<footer class="reader-footer">
+
 <div aria-label="Social media" class="social"></div>
 </footer>
 </div>
