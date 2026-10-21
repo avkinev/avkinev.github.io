@@ -1,0 +1,21 @@
+COPYRIGHT PATCH v7 — ONLY TWO FILES / ТОЛЬКО ДВА ФАЙЛА
+
+1. Open https://github.com/avkinev/avkinev.github.io/tree/main
+2. Add file > Upload files.
+3. Upload both social.js and style.css from this archive to the TOP LEVEL of the repository.
+4. Commit changes. Existing files with the same names will be replaced.
+5. Check https://avkinev.github.io/ru.html and /en.html.
+6. Under each story there should be an automatically inserted bilingual copyright notice.
+7. Press Ctrl+P and examine the PRINT PREVIEW: a pale diagonal watermark
+   '© Alexander Kinev · avkinev.github.io' should appear on printed pages.
+   Printing to PDF should typically show it as well, depending on the browser.
+
+No need to edit ru.md, en.md, ru.html, en.html, index.html or author.jpg.
+This patch leaves all story text unchanged.
+
+When another story is added with ## heading to ru.md or en.md, the notice
+is added automatically; no code changes required.
+
+Security limits: prevents only casual copy/paste. A determined user can copy
+anything shown on a public site or in a public GitHub repository.
+The print watermark can also be bypassed; it is a provenance indicator.

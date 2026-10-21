@@ -142,3 +142,34 @@ footer .social { display:flex; gap:20px; flex-wrap:wrap; }
 @media(max-width:620px) {
   .reading > h2 {margin:29px 0 25px; padding-top:33px;}
 }
+
+
+/* v7: Notice is inserted automatically after each story, on both language pages. */
+.reading > .story-copyright {
+  font: 12px/1.75 Arial,Helvetica,sans-serif;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  margin: 38px 0 12px;
+  padding: 14px 0 0;
+  user-select: none;
+}
+/* A print-only watermark across every printed page, including all story pages.
+   This is a visible authorship mark, not a security/DRM mechanism. */
+@media print {
+  .reading > .story-copyright { color: #555; break-inside: avoid; }
+  .print-watermark {
+    display: block !important;
+    position: fixed;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%) rotate(-27deg);
+    width: 92%;
+    text-align: center;
+    font: 600 23px/1.25 Georgia, serif;
+    color: #743e44;
+    opacity: .15;
+    white-space: normal;
+    pointer-events: none;
+    z-index: 10;
+  }
+}
