@@ -1,30 +1,59 @@
-ДВУЯЗЫЧНЫЙ ЛИТЕРАТУРНЫЙ САЙТ — ГЛАВНАЯ С ДВУМЯ ВЫБОРАМИ
+LITERARY WEBSITE v6 — SIMPLE EDITING / ПРОСТОЕ РЕДАКТИРОВАНИЕ
 
-index.html  — обложка: «Иллюзорный путь» | «Illusory Road».
-              Каждый заголовок расположен в собственной кликабельной половине
-              общего прямоугольника, разделённого вертикальной линией.
-ru.html     — русские рассказы непрерывным текстом.
-en.html     — английские рассказы непрерывным текстом.
-style.css   — оформление; на мобильных экранах карточки располагаются
-              одна под другой, разделитель становится горизонтальным.
-social.js   — ссылки для Telegram, Дзена и X (пока не заполнены).
+IMPORTANT: UNZIP THIS ARCHIVE BEFORE UPLOADING TO GITHUB.
+On GitHub upload the individual files, NOT the .zip archive itself.
 
-КАК ПРОВЕРИТЬ
-Откройте index.html двойным щелчком. Выберите русскую или английскую
-карточку. Верхнее имя автора на странице чтения возвращает на обложку.
-RU и EN в верхней полосе позволяют сразу переключить язык.
+WHAT CHANGED
+- index.html / style.css / author.jpg: burgundy front page, author photo left,
+  large bilingual name right, and two clickable story choices.
+- ru.md: Russian prose. Edit THIS FILE when correcting or adding Russian stories.
+- en.md: English prose. Edit THIS FILE for English edits and future translations.
+- ru.html / en.html: small fixed Jekyll templates; usually never edit these.
+- social.js: automatically makes the table of contents from Markdown headings;
+  also contains the optional social links (empty until configured).
+- Copyright notice and print-only watermark on reading pages.
 
-КАК ДОБАВИТЬ СЛЕДУЮЩИЙ РАССКАЗ
-В ru.html и en.html найдите NEXT STORY. Вставьте ниже предыдущего
-новый <section class="story prose" id="story-02"> с заголовком и
-абзацами рассказа, затем добавьте ссылку в верхнее содержание (toc).
-Для следующих рассказов story-03, story-04 и т. д.
+FIRST UPLOAD — PERFORM ONCE
+1. Unzip this folder on your computer.
+2. In GitHub open https://github.com/avkinev/avkinev.github.io/tree/main
+   Make sure you are looking at the MAIN branch (not a past commit).
+3. Add file > Upload files. Drag the 8 website files from the extracted
+   folder: index.html, ru.html, en.html, ru.md, en.md, style.css,
+   social.js, author.jpg. README.txt is optional. Commit changes.
+4. Open https://github.com/avkinev/avkinev.github.io and verify the eight
+   website filenames are visible in the TOP-LEVEL list (no subfolder).
+5. Under Actions/Pages check that the deployment succeeded.
+6. Open https://avkinev.github.io/ and test both language options.
+   Hard reload (Ctrl+F5) if you see old styling.
+   NOTE: the ru.html/en.html templates must be viewed online after GitHub Pages
+   builds them; double-clicking those templates on your computer will display
+   unprocessed Jekyll tags.
 
-Русский текст и существующий английский перевод сохранены без изменений.
-Имя автора пока условное.
+WEEKLY EDITING — NO CHATGPT NEEDED
+1. Open https://github.com/avkinev/avkinev.github.io/blob/main/ru.md
+   or https://github.com/avkinev/avkinev.github.io/blob/main/en.md
+2. Click the pencil icon (Edit this file).
+3. Change text, or append a new heading and paragraphs at the very end:
 
+   ## 2. Название второго рассказа
 
-ГЛАВНАЯ v4: фото автора (author.jpg) над первым циклом. Новые циклы / романы добавляйте новыми секциями .work-row внутри блока .works файла index.html. Не размещайте пустые секции заранее.
+   Первый абзац...
 
-ГЛАВНАЯ v5: фотография слева, имя автора крупно справа. Верхняя надпись «Проза / Prose».
-Английский рассказ обновлён авторским текстом без редакторских изменений.
+   Второй абзац...
+
+4. Click Commit changes. GitHub Pages regenerates the reading page.
+   The table of contents is built automatically from every heading that
+   begins with ##. The first ## heading is the Introduction.
+
+RULES
+- Keep the Markdown headings starting with ##; do not edit HTML for stories.
+- Add only stories you intend to publish immediately. This is a PUBLIC repository.
+- Keep your master manuscripts separately on your computer.
+- Do not create a .nojekyll file: GitHub Pages must process Liquid/Jekyll tags
+  in ru.html and en.html, to convert the Markdown to HTML.
+- The two story URLs stay /ru.html and /en.html; no new links to publish each week.
+- The no-copy behavior is a small deterrent, not real copyright security.
+
+If the pages show a Jekyll syntax string instead of a story, check Settings >
+Pages > Build and deployment. The site needs ordinary GitHub Pages Jekyll
+processing (Deploy from a branch); no third-party build needed.

@@ -17,3 +17,23 @@ for (const [service, url] of Object.entries(socialLinks)) {
   link.rel = 'noopener noreferrer';
   social.append(link);
 }
+
+
+// v6: Build a clickable table of contents from every story heading in Markdown.
+// First H2 = Introduction. Every following H2 = a new story.
+const reading = document.querySelector('.reading');
+if (reading) {
+  const headings = Array.from(reading.querySelectorAll(':scope > h2'));
+  const toc = document.querySelector('.toc');
+  headings.slice(1).forEach((heading, index) => {
+    const anchor = 'story-' + String(index + 1).padStart(2,'0');
+    heading.id = anchor;
+    const a = document.createElement('a');
+    a.href = '#' + anchor;
+    a.textContent = heading.textContent;
+    if(toc) toc.append(a);
+  });
+  // Only discourages casual copying from the visible page.
+  reading.addEventListener('copy', event => event.preventDefault());
+  reading.addEventListener('contextmenu', event => event.preventDefault());
+}
