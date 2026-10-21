@@ -11,27 +11,44 @@
   <meta property="og:title" content="Иллюзорный путь — Александр Кинев">
   <meta property="og:description" content="Иллюзорный путь: рассказы Александра Кинева. Читать по-русски.">
   <title>Иллюзорный путь — Александр Кинев</title>
-  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="stylesheet" href="style.css">
   <link rel="alternate" hreflang="ru" href="ru.html">
   <link rel="alternate" hreflang="en" href="en.html">
   <script src="social.js" defer></script>
-<style id="copyright-v9-styles">
-/* This inline block does not depend on style.css caching. */
-.story-copyright {display:block; padding:16px 0 0; margin:32px 0 55px; border-top:1px solid #d9cbc4;
-  color:#76655e; font:12px/1.8 Arial,Helvetica,sans-serif;}
-.print-watermark {display:none!important;}
+<style id="copyright-topline-v10">
+/* Copyright notice is static HTML: works immediately, regardless of story count. */
+.copyright-notice {
+  margin: 26px 0 0;
+  padding: 13px 0 0;
+  border-top: 1px solid #d9cbc4;
+  font: 12px/1.75 Arial, Helvetica, sans-serif;
+  color: #743e44;
+}
+.copyright-print-watermark { display: none !important; }
 @media print {
-  .print-watermark {display:block!important; position:fixed!important; left:50%!important; top:48%!important;
-   transform:translate(-50%,-50%) rotate(-27deg)!important; width:90%!important; text-align:center!important;
-   z-index:2147483646!important; opacity:.38!important; color:#743e44!important;
-   font:700 32px/1.2 Georgia,'Times New Roman',serif!important;
-   white-space:nowrap!important; pointer-events:none!important;}
-  .story-copyright {color:#555!important; break-inside:avoid!important;}
-  .reading {-webkit-user-select:text!important;user-select:text!important;}
+  .copyright-notice { color: #333 !important; }
+  .copyright-print-watermark {
+    display: block !important;
+    position: fixed !important;
+    left: 7% !important;
+    top: 46% !important;
+    width: 86% !important;
+    text-align: center !important;
+    transform: rotate(-27deg) !important;
+    font: bold 26pt/1.1 Georgia, 'Times New Roman', serif !important;
+    color: #743e44 !important;
+    opacity: .22 !important;
+    white-space: nowrap !important;
+    pointer-events: none !important;
+    z-index: 999999 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }
 </style>
 </head>
 <body id="top">
+<div class="copyright-print-watermark" aria-hidden="true">© Alexander Kinev · avkinev.github.io</div>
 <div class="page">
   <header>
     <a class="brand" href="index.html">Александр Кинев</a>
@@ -45,6 +62,7 @@
       <div class="kicker">Проза / <span lang="en">Prose</span></div>
       <h1>Иллюзорный путь</h1>
       <p class="dek">Правдивые истории о просветлённом бодхисатве и его путешествии на восток</p>
+      <p class="copyright-notice" role="note">© 2026 Александр Кинев. Все права защищены. Перепечатка и публикация переводов — только с разрешения автора.</p>
       <nav class="toc" aria-label="Рассказы">
         <span class="toc-label">Рассказы</span>
       </nav>
@@ -52,31 +70,14 @@
     <div class="reading prose" id="stories">
 {% capture source_text %}{% include_relative ru.md %}{% endcapture %}
 {{ source_text | markdownify }}
-<p class="story-copyright" data-copyright="v9" role="note">© Александр Кинев. Все права защищены.<br>Перепечатка и публикация переводов — только с разрешения автора.</p>
 </div>
     <a class="back-to-top" href="#top">↑ К началу</a>
-  <div class="print-watermark" aria-hidden="true">© Alexander Kinev · avkinev.github.io</div>
+
 </main>
   <footer>
     <span>© 2026 Александр Кинев. Все права защищены.</span>
     <div class="social" aria-label="Social media"></div>
   </footer>
 </div>
-<script id="copyright-v9" defer>
-/* If this is the last story, its notice is already statically in the HTML.
-   For preceding stories, add the same notice before the next story heading. */
-document.addEventListener('DOMContentLoaded', function() {
-  const reading = document.querySelector('#stories');
-  if (!reading) return;
-  const headings = Array.from(reading.querySelectorAll(':scope > h2')).slice(1);
-  const sample = reading.querySelector('[data-copyright="v9"]');
-  if (!sample) return;
-  for (let i=0; i<headings.length-1; i++) {
-    const copy = sample.cloneNode(true);
-    copy.removeAttribute('data-copyright');
-    headings[i+1].insertAdjacentElement('beforebegin',copy);
-  }
-});
-</script>
 </body>
 </html>
