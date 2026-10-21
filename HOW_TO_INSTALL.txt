@@ -1,21 +1,32 @@
-COPYRIGHT PATCH v7 — ONLY TWO FILES / ТОЛЬКО ДВА ФАЙЛА
+COPYRIGHT PATCH v8 — THREE FILES
 
-1. Open https://github.com/avkinev/avkinev.github.io/tree/main
-2. Add file > Upload files.
-3. Upload both social.js and style.css from this archive to the TOP LEVEL of the repository.
-4. Commit changes. Existing files with the same names will be replaced.
-5. Check https://avkinev.github.io/ru.html and /en.html.
-6. Under each story there should be an automatically inserted bilingual copyright notice.
-7. Press Ctrl+P and examine the PRINT PREVIEW: a pale diagonal watermark
-   '© Alexander Kinev · avkinev.github.io' should appear on printed pages.
-   Printing to PDF should typically show it as well, depending on the browser.
+This patch is for the GitHub Pages site avkinev.github.io based on v6
+(the version in which ru.md and en.md are editable).
 
-No need to edit ru.md, en.md, ru.html, en.html, index.html or author.jpg.
-This patch leaves all story text unchanged.
+Replace ONLY these three files in the ROOT of your main branch:
+  ru.html
+  en.html
+  style.css
 
-When another story is added with ## heading to ru.md or en.md, the notice
-is added automatically; no code changes required.
+Do NOT upload a folder containing them. Do NOT replace ru.md/en.md.
+Your stories and translations remain unchanged.
 
-Security limits: prevents only casual copy/paste. A determined user can copy
-anything shown on a public site or in a public GitHub repository.
-The print watermark can also be bypassed; it is a provenance indicator.
+IMPORTANT: GitHub should show 3 changed files in the new commit.
+
+AFTER COMMIT:
+  1. Wait for GitHub Actions / Pages deployment to succeed.
+  2. Open https://avkinev.github.io/ru.html and use Ctrl+F5.
+  3. Scroll below story #1: the copyright notice is visible.
+  4. Press Ctrl+P. You should see a diagonal watermark across the text.
+  5. Test both language pages.
+
+WHY THIS IS DIFFERENT:
+Copyright is now added by Jekyll when GitHub builds the page.
+There is no reliance on JavaScript or the structure of the live page.
+Whenever a story heading begins with '## ' in ru.md/en.md, a new notice
+is inserted automatically after its text. The first '## ' heading is the
+introduction, which gets no story notice. Do not use additional '## '
+subheadings inside a story: use '### ' instead.
+
+Print watermark deters casual republication; it cannot stop a visitor
+from extracting HTML, making screenshots, or disabling print styles.

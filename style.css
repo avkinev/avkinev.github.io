@@ -144,32 +144,35 @@ footer .social { display:flex; gap:20px; flex-wrap:wrap; }
 }
 
 
-/* v7: Notice is inserted automatically after each story, on both language pages. */
+/* v8: Per-story copyright notice rendered directly by Jekyll (independent of JS). */
 .reading > .story-copyright {
-  font: 12px/1.75 Arial,Helvetica,sans-serif;
-  color: var(--muted);
-  border-top: 1px solid var(--line);
-  margin: 38px 0 12px;
-  padding: 14px 0 0;
-  user-select: none;
+  display: block;
+  font: 12px/1.8 Arial,Helvetica,sans-serif;
+  color: #776d65;
+  margin: 32px 0 55px;
+  padding: 16px 0 0;
+  border-top: 1px solid #d9cbc4;
+  letter-spacing: .005em;
+  -webkit-user-select: none; user-select: none;
 }
-/* A print-only watermark across every printed page, including all story pages.
-   This is a visible authorship mark, not a security/DRM mechanism. */
+
+/* v8: Browser print/PDF watermark is readable, and independent of JavaScript.
+   Screen display remains unchanged. Browser print features can still be bypassed. */
 @media print {
-  .reading > .story-copyright { color: #555; break-inside: avoid; }
   .print-watermark {
     display: block !important;
-    position: fixed;
-    left: 50%;
-    top: 48%;
-    transform: translate(-50%, -50%) rotate(-27deg);
-    width: 92%;
-    text-align: center;
-    font: 600 23px/1.25 Georgia, serif;
-    color: #743e44;
-    opacity: .15;
-    white-space: normal;
-    pointer-events: none;
-    z-index: 10;
+    position: fixed !important;
+    left: 50% !important; top: 50% !important;
+    transform: translate(-50%,-50%) rotate(-27deg) !important;
+    width: 95% !important;
+    text-align: center !important;
+    color: #a68086 !important;
+    opacity: .50 !important;
+    font: 700 26px/1.2 Georgia,'Times New Roman',serif !important;
+    white-space: normal !important;
+    z-index: 2147483000 !important;
+    pointer-events: none !important;
   }
+  .reading > .story-copyright { color: #555 !important; break-inside: avoid; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }

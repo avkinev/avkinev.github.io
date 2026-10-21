@@ -12,7 +12,7 @@
 <meta content="Illusory Road — Alexander Kinev" property="og:title"/>
 <meta content="Illusory Road: prose by Alexander Kinev. Read in English." property="og:description"/>
 <title>Illusory Road — Alexander Kinev</title>
-<link href="style.css" rel="stylesheet"/>
+<link href="style.css?v=8" rel="stylesheet"/>
 <link href="ru.html" hreflang="ru" rel="alternate"/>
 <link href="en.html" hreflang="en" rel="alternate"/>
 <script defer="" src="social.js"></script>
@@ -36,8 +36,21 @@
 </nav>
 </div>
 <div class="reading prose" id="stories">
+<!-- Copyright v8: notices are generated at build time; no JavaScript required. -->
 {% capture source_text %}{% include_relative en.md %}{% endcapture %}
-{{ source_text | markdownify }}
+{% assign passages = source_text | split: "## " %}
+{% for passage in passages %}
+  {% unless passage == "" %}
+    {% assign rendered_passage = passage | prepend: "## " %}
+    {{ rendered_passage | markdownify }}
+    {% if forloop.index > 2 %}
+    <p class="story-copyright" role="note">
+  © Alexander Kinev. All rights reserved.<br>
+  Republication and publication of translations require the author’s permission.
+</p>
+    {% endif %}
+  {% endunless %}
+{% endfor %}
 </div>
     <a class="back-to-top" href="#top">↑ Back to the top</a>
 <div class="print-watermark" aria-hidden="true">© Alexander Kinev · avkinev.github.io</div>

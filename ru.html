@@ -11,7 +11,7 @@
   <meta property="og:title" content="Иллюзорный путь — Александр Кинев">
   <meta property="og:description" content="Иллюзорный путь: рассказы Александра Кинева. Читать по-русски.">
   <title>Иллюзорный путь — Александр Кинев</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=8">
   <link rel="alternate" hreflang="ru" href="ru.html">
   <link rel="alternate" hreflang="en" href="en.html">
   <script src="social.js" defer></script>
@@ -35,8 +35,21 @@
       </nav>
     </div>
     <div class="reading prose" id="stories">
+<!-- Copyright v8: notices are generated at build time; no JavaScript required. -->
 {% capture source_text %}{% include_relative ru.md %}{% endcapture %}
-{{ source_text | markdownify }}
+{% assign passages = source_text | split: "## " %}
+{% for passage in passages %}
+  {% unless passage == "" %}
+    {% assign rendered_passage = passage | prepend: "## " %}
+    {{ rendered_passage | markdownify }}
+    {% if forloop.index > 2 %}
+    <p class="story-copyright" role="note">
+  © Александр Кинев. Все права защищены.<br>
+  Перепечатка и публикация переводов — с разрешения автора.
+</p>
+    {% endif %}
+  {% endunless %}
+{% endfor %}
 </div>
     <a class="back-to-top" href="#top">↑ К началу</a>
   <div class="print-watermark" aria-hidden="true">© Alexander Kinev · avkinev.github.io</div>
