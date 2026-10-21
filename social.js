@@ -38,35 +38,3 @@ if (reading) {
   reading.addEventListener('contextmenu', event => event.preventDefault());
 }
 
-
-// v7: Every new story gets its own copyright notice automatically.
-// Story boundaries are the H2 headings already used for the table of contents.
-if (reading) {
-  const storyHeads = Array.from(reading.querySelectorAll(':scope > h2')).slice(1);
-  const russian = document.documentElement.lang === 'ru';
-  const copyrightLines = russian
-    ? ['© Александр Кинев. Все права защищены.',
-       'Перепечатка и публикация переводов — с разрешения автора.']
-    : ['© Alexander Kinev. All rights reserved.',
-       'Republication and publication of translations require the author’s permission.'];
-
-  storyHeads.forEach((heading) => {
-    // Locate the end of this story (before the next H2 or the end of the reading area).
-    let last = heading;
-    let next = heading.nextElementSibling;
-    while (next && next.tagName !== 'H2') {
-      last = next;
-      next = next.nextElementSibling;
-    }
-    // Prevent duplicate notices if the script is re-run.
-    if (last.classList.contains('story-copyright')) return;
-    const notice = document.createElement('p');
-    notice.className = 'story-copyright';
-    notice.setAttribute('aria-label', russian ? 'Авторские права' : 'Copyright notice');
-    copyrightLines.forEach((line, index) => {
-      if (index) notice.append(document.createElement('br'));
-      notice.append(document.createTextNode(line));
-    });
-    last.insertAdjacentElement('afterend', notice);
-  });
-}
