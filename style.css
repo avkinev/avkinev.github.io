@@ -143,36 +143,79 @@ footer .social { display:flex; gap:20px; flex-wrap:wrap; }
   .reading > h2 {margin:29px 0 25px; padding-top:33px;}
 }
 
+/* v13: cleaner literary typography and removal of duplicate decorations.
+   These rules only affect presentation; the manuscript files stay untouched. */
 
-/* v8: Per-story copyright notice rendered directly by Jekyll (independent of JS). */
-.reading > .story-copyright {
-  display: block;
-  font: 12px/1.8 Arial,Helvetica,sans-serif;
-  color: #776d65;
-  margin: 32px 0 55px;
-  padding: 16px 0 0;
-  border-top: 1px solid #d9cbc4;
-  letter-spacing: .005em;
-  -webkit-user-select: none; user-select: none;
+/* One readable serif family for body text and literary headings, in both languages. */
+body, h1, .dek, .cover-title, .author-name, .reading, .reading > h2,
+.reading > h2:first-child {
+  font-family: Georgia, 'Times New Roman', serif;
 }
+.reading, .prose, .reading > p {
+  font-size: clamp(18px, 1.55vw, 20px);
+  line-height: 1.72;
+}
+.reading > p { margin-bottom: 1.15em; }
+.hero h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  font-size: clamp(38px, 5.2vw, 62px);
+  line-height: 1.16;
+  letter-spacing: -0.025em;
+}
+/* Make Introduction and numbered story headings visually consistent. */
+.reading > h2, .reading > h2:first-child {
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size: clamp(26px, 3vw, 31px) !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: var(--ink) !important;
+  border-top: 0 !important;
+  padding-top: 0 !important;
+  margin: 34px 0 23px !important;
+}
+.reading > h2:first-child { margin-top: 12px !important; }
+.kicker { font-family: Georgia, 'Times New Roman', serif; font-size: 15px; letter-spacing: 0; text-transform: none; }
+/* No ornamental ellipsis, duplicate copyright, or redundant separator rules. */
+.reading::after { content: none !important; display: none !important; }
+.copyright-notice {
+  border-top: 0 !important;
+  padding-top: 0 !important;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size: 12px !important;
+  line-height: 1.55 !important;
+}
+body:not(.cover-page) footer { border-top: 0; padding: 0 0 35px; justify-content: flex-end; }
+body:not(.cover-page) footer > span { display: none; }
+.back-to-top { margin-top: 35px; margin-bottom: 30px; }
 
-/* v8: Browser print/PDF watermark is readable, and independent of JavaScript.
-   Screen display remains unchanged. Browser print features can still be bypassed. */
+@media (max-width:620px) {
+  .reading, .prose, .reading > p { font-size: 18px; line-height: 1.68; }
+  .reading > h2, .reading > h2:first-child { margin-top: 28px !important; margin-bottom: 18px !important; }
+}
 @media print {
-  .print-watermark {
-    display: block !important;
-    position: fixed !important;
-    left: 50% !important; top: 50% !important;
-    transform: translate(-50%,-50%) rotate(-27deg) !important;
-    width: 95% !important;
-    text-align: center !important;
-    color: #a68086 !important;
-    opacity: .50 !important;
-    font: 700 26px/1.2 Georgia,'Times New Roman',serif !important;
-    white-space: normal !important;
-    z-index: 2147483000 !important;
-    pointer-events: none !important;
+  @page { margin: 16mm 17mm; }
+  /* Preserve a compact, legible printed book-like page. */
+  .page { max-width: none; padding: 0; }
+  .hero { margin: 0; padding: 0 0 15px; max-width: none; }
+  .hero h1 { font-size: 25pt; margin: 12px 0 9px; }
+  .dek { font-size: 12pt; line-height: 1.4; }
+  .reading, .prose, .reading > p {
+    max-width: none;
+    font-family: Georgia, 'Times New Roman', serif !important;
+    font-size: 12pt !important;
+    line-height: 1.55 !important;
+    orphans: 3;
+    widows: 3;
   }
-  .reading > .story-copyright { color: #555 !important; break-inside: avoid; }
-  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .reading { padding-top: 4px; }
+  .reading > h2, .reading > h2:first-child {
+    font-size: 18pt !important;
+    margin: 18px 0 12px !important;
+    break-after: avoid;
+  }
+  .copyright-notice { font-size: 8.5pt !important; margin-top: 12px !important; }
+  .back-to-top, body:not(.cover-page) footer { display: none !important; }
 }
