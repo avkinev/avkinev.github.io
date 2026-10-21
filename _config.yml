@@ -1,0 +1,6 @@
+# Source manuscripts remain editable at the repository root.
+# Pages are generated only from ru.html and en.html.
+# The HTML pages read the .md sources with include_relative.
+exclude:
+  - ru.md
+  - en.md
