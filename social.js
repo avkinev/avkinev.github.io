@@ -37,4 +37,3 @@ if (reading) {
   reading.addEventListener('copy', event => event.preventDefault());
   reading.addEventListener('contextmenu', event => event.preventDefault());
 }
-
