@@ -25,8 +25,8 @@ const reading = document.querySelector('.reading');
 if (reading) {
   const headings = Array.from(reading.querySelectorAll(':scope > h2'));
   const toc = document.querySelector('.toc');
-  headings.slice(1).forEach((heading, index) => {
-    const anchor = 'story-' + String(index + 1).padStart(2,'0');
+  headings.forEach((heading, index) => {
+  const anchor = index === 0 ? 'intro' : 'story-' + index;
     heading.id = anchor;
     const a = document.createElement('a');
     a.href = '#' + anchor;
