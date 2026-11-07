@@ -37,28 +37,3 @@ if (reading) {
   reading.addEventListener('copy', event => event.preventDefault());
   reading.addEventListener('contextmenu', event => event.preventDefault());
 }
-.toc {
-  max-width: 790px;
-  margin: 12px auto 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.toc a {
-  color: var(--accent);
-  font: 400 20px/1.5 Arial, Helvetica, sans-serif;
-}
-
-.toc::before {
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-html[lang="ru"] .toc::before {
-  content: "Содержание";
-}
-
-html[lang="en"] .toc::before {
-  content: "Contents";
-}
