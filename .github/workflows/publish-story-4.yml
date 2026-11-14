@@ -1,0 +1,27 @@
+
+name: Publish Story 4
+
+on:
+  schedule:
+    - cron: "0 2 14 11 *"
+      timezone: "America/New_York"
+
+permissions:
+  contents: write
+  pull-requests: write
+  pages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge Story 4 and rebuild website
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [[ "$(TZ=America/New_York date +%F)" != "2026-11-14" ]]; then
+            exit 0
+          fi
+
+          gh pr merge 1 --merge --repo "$GITHUB_REPOSITORY"
+          gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
